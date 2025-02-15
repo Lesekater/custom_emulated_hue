@@ -4,7 +4,7 @@
   "codeowners": [
     "@@bdraco",
     "@Tho85",
-    "@Lesekater",
+    "@Lesekater"
   ],
   "config_flow": false,
   "documentation": "https://www.home-assistant.io/integrations/emulated_hue/",
