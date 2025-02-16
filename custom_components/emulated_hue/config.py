@@ -252,7 +252,9 @@ class Config:
             # Ignore entities that are views
             return False
 
-        if exposed_entities.async_should_expose(self.hass, "conversation", state.entity_id):
+        if exposed_entities.async_should_expose(
+            self.hass, "conversation", state.entity_id
+        ):
             return True
 
         return False
