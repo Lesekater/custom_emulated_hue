@@ -1,46 +1,34 @@
-# Notice
+# Custom Emulated Hue Integration
 
-The component and platforms in this repository are not meant to be used by a
-user, but as a "blueprint" that custom component developers can build
-upon, to make more awesome stuff.
+This Home Assistant integration replaces the core `emulated_hue` integration and adds the functionality to expose entities via [Home Assistant's voice assistants expose](https://my.home-assistant.io/redirect/voice_assistants/expose), while removing the functionality to expose via `configuration.yaml`.
 
-HAVE FUN! 😎
+- Based on the [integration_blueprint](https://github.com/ludeeus/integration_blueprint).
 
-## Why?
+## Features
 
-This is simple, by having custom_components look (README + structure) the same
-it is easier for developers to help each other and for users to start using them.
+- Expose entities via Home Assistant's voice assistants expose.
+- Removes the need to configure entity exposure via `configuration.yaml`.
 
-If you are a developer and you want to add things to this "blueprint" that you think more
-developers will have use for, please open a PR to add it :)
+## TODO
 
-## What?
+- Completely remove YAML configuration and make this configurable via the GUI (config flow).
 
-This repository contains multiple files, here is a overview:
+## Development
 
-File | Purpose | Documentation
--- | -- | --
-`.devcontainer.json` | Used for development/testing with Visual Studio Code. | [Documentation](https://code.visualstudio.com/docs/remote/containers)
-`.github/ISSUE_TEMPLATE/*.yml` | Templates for the issue tracker | [Documentation](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository)
-`custom_components/integration_blueprint/*` | Integration files, this is where everything happens. | [Documentation](https://developers.home-assistant.io/docs/creating_component_index)
-`CONTRIBUTING.md` | Guidelines on how to contribute. | [Documentation](https://help.github.com/en/github/building-a-strong-community/setting-guidelines-for-repository-contributors)
-`LICENSE` | The license file for the project. | [Documentation](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository)
-`README.md` | The file you are reading now, should contain info about the integration, installation and configuration instructions. | [Documentation](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
-`requirements.txt` | Python packages used for development/lint/testing this integration. | [Documentation](https://pip.pypa.io/en/stable/user_guide/#requirements-files)
+This project includes a development container to help you get started quickly. To develop, use the script located at `./scripts/develop` to start a local Home Assistant instance.
 
-## How?
+## License
 
-1. Create a new repository in GitHub, using this repository as a template by clicking the "Use this template" button in the GitHub UI.
-1. Open your new repository in Visual Studio Code devcontainer (Preferably with the "`Dev Containers: Clone Repository in Named Container Volume...`" option).
-1. Rename all instances of the `integration_blueprint` to `custom_components/<your_integration_domain>` (e.g. `custom_components/awesome_integration`).
-1. Rename all instances of the `Integration Blueprint` to `<Your Integration Name>` (e.g. `Awesome Integration`).
-1. Run the `scripts/develop` to start HA and test out your new integration.
+This project is licensed under the MIT License.
 
-## Next steps
+## Installation
 
-These are some next steps you may want to look into:
-- Add tests to your integration, [`pytest-homeassistant-custom-component`](https://github.com/MatthewFlamm/pytest-homeassistant-custom-component) can help you get started.
-- Add brand images (logo/icon) to https://github.com/home-assistant/brands.
-- Create your first release.
-- Share your integration on the [Home Assistant Forum](https://community.home-assistant.io/).
-- Submit your integration to [HACS](https://hacs.xyz/docs/publish/start).
+To install this integration via HACS (Home Assistant Community Store), follow these steps:
+
+1. Go to HACS in your Home Assistant instance.
+2. Click on "Integrations".
+3. Click on the three dots menu in the top right corner and select "Custom repositories".
+4. Add the repository URL and select the category as "Integration".
+5. Find the new custom repository in the list and click "Install".
+
+For more detailed instructions, refer to the [HACS documentation](https://hacs.xyz/docs/installation/manual).
