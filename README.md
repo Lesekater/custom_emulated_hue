@@ -1,6 +1,6 @@
 # Custom Emulated Hue Integration
 
-This Home Assistant integration replaces the core `emulated_hue` integration and adds the functionality to expose entities via [Home Assistant's voice assistants expose](https://my.home-assistant.io/redirect/voice_assistants/expose), while removing the functionality to expose via `configuration.yaml`.
+This Home Assistant integration replaces the core [`emulated_hue`](https://www.home-assistant.io/integrations/emulated_hue/) integration and adds the functionality to expose entities via [Home Assistant's voice assistants expose](https://my.home-assistant.io/redirect/voice_assistants/), while removing the functionality to expose via `configuration.yaml`.
 
 - Based on the [integration_blueprint](https://github.com/ludeeus/integration_blueprint).
 
