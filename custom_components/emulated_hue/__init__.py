@@ -102,6 +102,8 @@ async def start_emulated_hue_bridge(
         config.advertise_port or config.listen_port,
     )
 
+    _LOGGER.error("Starting emulated Hue bridge at %s:%d", config.host_ip_addr, config.listen_port)
+
     runner = web.AppRunner(app)
     await runner.setup()
 
@@ -138,6 +140,8 @@ async def async_setup(hass: HomeAssistant, yaml_config: ConfigType) -> bool:
     # anything during startup. Temp workaround.
     app._on_startup.freeze()  # noqa: SLF001
     await app.startup()
+
+    _LOGGER.error("Configuring UPNP and Hue component.")
 
     DescriptionXmlView(config).register(hass, app, app.router)
     HueUsernameView().register(hass, app, app.router)

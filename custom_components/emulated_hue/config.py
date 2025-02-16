@@ -29,6 +29,7 @@ from homeassistant.helpers.event import (
     async_track_state_added_domain,
     async_track_state_removed_domain,
 )
+from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.helpers.typing import ConfigType
 
 SUPPORTED_DOMAINS = {
@@ -213,7 +214,7 @@ class Config:
 
         return state.attributes.get(ATTR_EMULATED_HUE_NAME, state.name)  # type: ignore[no-any-return]
 
-    @cache  # pylint: disable=method-cache-max-size-none
+    # @cache  # pylint: disable=method-cache-max-size-none
     def get_exposed_entity_ids(self) -> list[str]:
         """Return a list of exposed states."""
         state_machine = self.hass.states
@@ -236,8 +237,8 @@ class Config:
 
     def is_state_exposed(self, state: State) -> bool:
         """Cache determine if an entity should be exposed on the emulated bridge."""
-        if (exposed := self._exposed_cache.get(state.entity_id)) is not None:
-            return exposed
+        # if (exposed := self._exposed_cache.get(state.entity_id)) is not None:
+        #     return exposed
         exposed = self._is_state_exposed(state)
         self._exposed_cache[state.entity_id] = exposed
         return exposed
@@ -251,15 +252,7 @@ class Config:
             # Ignore entities that are views
             return False
 
-        if state.entity_id in self._entities_with_hidden_attr_in_config:
-            return not self._entities_with_hidden_attr_in_config[state.entity_id]
-
-        if not self.expose_by_default:
-            return False
-        # Expose an entity if the entity's domain is exposed by default and
-        # the configuration doesn't explicitly exclude it from being
-        # exposed, or if the entity is explicitly exposed
-        if state.domain in self.exposed_domains:
+        if exposed_entities.async_should_expose(self.hass, "conversation", state.entity_id):
             return True
 
         return False
