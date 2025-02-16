@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import logging
 
-from aiohttp import web
+import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-
+from aiohttp import web
 from homeassistant.components.http import KEY_HASS
 from homeassistant.components.network import async_get_source_ip
 from homeassistant.const import (
@@ -16,7 +16,6 @@ from homeassistant.const import (
     EVENT_HOMEASSISTANT_STOP,
 )
 from homeassistant.core import Event, HomeAssistant
-import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.typing import ConfigType
 
 from .config import (

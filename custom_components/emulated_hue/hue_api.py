@@ -3,17 +3,16 @@
 from __future__ import annotations
 
 import asyncio
-from collections.abc import Iterable
-from functools import lru_cache
 import hashlib
-from http import HTTPStatus
-from ipaddress import ip_address
 import logging
 import time
+from collections.abc import Iterable
+from functools import lru_cache
+from http import HTTPStatus
+from ipaddress import ip_address
 from typing import Any
 
 from aiohttp import web
-
 from homeassistant import core
 from homeassistant.components import (
     climate,

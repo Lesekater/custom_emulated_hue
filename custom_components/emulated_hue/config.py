@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from functools import cache
 import logging
+from functools import cache
 
 from homeassistant.components import (
     climate,
@@ -15,6 +15,7 @@ from homeassistant.components import (
     scene,
     script,
 )
+from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.const import CONF_ENTITIES, CONF_TYPE
 from homeassistant.core import (
     Event,
@@ -29,7 +30,6 @@ from homeassistant.helpers.event import (
     async_track_state_added_domain,
     async_track_state_removed_domain,
 )
-from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.helpers.typing import ConfigType
 
 SUPPORTED_DOMAINS = {
@@ -244,7 +244,8 @@ class Config:
         return exposed
 
     def _is_state_exposed(self, state: State) -> bool:
-        """Determine if an entity state should be exposed on the emulated bridge.
+        """
+        Determine if an entity state should be exposed on the emulated bridge.
 
         Async friendly.
         """

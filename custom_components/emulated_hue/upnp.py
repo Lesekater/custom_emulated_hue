@@ -3,13 +3,12 @@
 from __future__ import annotations
 
 import asyncio
-from contextlib import suppress
 import logging
 import socket
+from contextlib import suppress
 from typing import cast
 
 from aiohttp import web
-
 from homeassistant import core
 from homeassistant.components.http import HomeAssistantView
 
