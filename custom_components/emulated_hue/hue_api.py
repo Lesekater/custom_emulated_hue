@@ -476,6 +476,10 @@ class HueOneLightChangeView(HomeAssistantView):
                         parsed[STATE_BRIGHTNESS]
                     )
 
+                # If brightness is set to 100% ignore it
+                if data[ATTR_BRIGHTNESS] == 255:
+                    data[ATTR_BRIGHTNESS] = None
+
                 if light.color_supported(color_modes):
                     if any((parsed[STATE_HUE], parsed[STATE_SATURATION])):
                         if parsed[STATE_HUE] is not None:
