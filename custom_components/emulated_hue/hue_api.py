@@ -475,9 +475,6 @@ class HueOneLightChangeView(HomeAssistantView):
                     data[ATTR_BRIGHTNESS] = hue_brightness_to_hass(
                         parsed[STATE_BRIGHTNESS]
                     )
-                # set to 60 percent brightness if not specified
-                else:
-                    data[ATTR_BRIGHTNESS] = round(255 / 100 * 60)
 
                 if light.color_supported(color_modes):
                     if any((parsed[STATE_HUE], parsed[STATE_SATURATION])):
