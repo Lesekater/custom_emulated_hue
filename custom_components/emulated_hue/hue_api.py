@@ -466,6 +466,7 @@ class HueOneLightChangeView(HomeAssistantView):
         # If the requested entity is a light, set the brightness, hue,
         # saturation and color temp
         if entity.domain == light.DOMAIN:
+            _LOGGER.debug("Setting light %s to %s", entity_id, parsed)
             if parsed[STATE_ON]:
                 if (
                     light.brightness_supported(color_modes)
