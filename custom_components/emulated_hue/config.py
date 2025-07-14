@@ -244,8 +244,7 @@ class Config:
         return exposed
 
     def _is_state_exposed(self, state: State) -> bool:
-        """
-        Determine if an entity state should be exposed on the emulated bridge.
+        """Determine if an entity state should be exposed on the emulated bridge.
 
         Async friendly.
         """
