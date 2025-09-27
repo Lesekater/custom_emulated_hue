@@ -11,5 +11,7 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
       # Dependabot should not update Home Assistant as that should match the homeassistant key in hacs.json
       - dependency-name: "homeassistant"
