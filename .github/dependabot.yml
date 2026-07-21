@@ -6,6 +6,11 @@ updates:
     schedule:
       interval: "weekly"
 
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
@@ -15,3 +20,8 @@ updates:
         update-types: ["version-update:semver-patch"]
       # Dependabot should not update Home Assistant as that should match the homeassistant key in hacs.json
       - dependency-name: "homeassistant"
+
+    groups:
+      pip:
+        patterns:
+          - "*"
